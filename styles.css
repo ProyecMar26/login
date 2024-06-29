@@ -1,0 +1,60 @@
+body {
+    background-color: #4195;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+    cursor: pointer;
+}
+form .a {
+    color: #000;
+    padding-left: 50px;
+}
+
+button {
+    background-color: #4195;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 150px;
+    font-size: 17px;
+    margin-top: 20px;
+}
+
+button:hover {
+    background-color: #4197;
+}
+
+input {
+    width: 300px;
+    border: none;
+    background-color: #4190;
+    border-bottom: 1px solid #000;
+}
+
+input:not(:placeholder-shown) {
+    background-color: #4191; 
+}
+
+label {
+    font-size: 20px;
+}
+
+.ingresar h1 {
+    font-size: 28px;
+    text-align: center;
+}
+
+.ingresar {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    box-shadow: 2px 4px 15px 0 #4199;
+}
