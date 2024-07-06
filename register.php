@@ -4,6 +4,7 @@ include 'conn.php';
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST['username'];
     $password = $_POST['password'];
+    $email = $_POST['email'];
 
     // Verificar si el nombre de usuario ya existe
     $stmt = $conn->prepare("SELECT * FROM usuarios WHERE username = ?");
@@ -12,15 +13,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $result = $stmt->get_result();
 
     if ($result->num_rows > 0) {
-        echo "El nombre de usuario ya existe. Por favor elige otro.";
+        echo "  El nombre de usuario ya existe. Por favor elige otro.";
     } else {
         // Insertar nuevo usuario en la base de datos
-        $stmt = $conn->prepare("INSERT INTO usuarios (username, password) VALUES (?, ?)");
-        $stmt->bind_param("ss", $username, $password);
+        $stmt = $conn->prepare("INSERT INTO usuarios (username, password, email) VALUES (?, ?, ?)");
+        $stmt->bind_param("sss", $username, $password, $email);
         if ($stmt->execute()) {
-            echo "Usuario registrado correctamente.";
+            echo "  Usuario registrado correctamente.";
         } else {
-            echo "Error al registrar el usuario: " . $stmt->error;
+            echo "  Error al registrar el usuario: " . $stmt->error;
         }
     }
 
